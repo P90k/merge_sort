@@ -8,10 +8,10 @@ def merge_sort(arr)
   right_arr = merge_sort(arr[arr.length / 2..arr.length])
 
   until left_arr.empty? || right_arr.empty?
-    sorted_arr << (left_arr[0] < right_arr[0] ? right_arr.shift : left_arr.shift)
+    sorted_arr << (left_arr[0] < right_arr[0] ? left_arr.shift : right_arr.shift)
 
   end
-  left_arr.empty? ? sorted_arr.concat(right_arr) : sorted_arr.concat(left_arr)
+  sorted_arr += left_arr.empty? ? right_arr : left_arr
 
   sorted_arr
 end
